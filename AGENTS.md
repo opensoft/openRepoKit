@@ -13,3 +13,12 @@ the two legs.
 Everything below this line is openRepoKit's own. The shape wrote the block above
 once and does not pin this file, so how this project is built, tested, reviewed
 and released belongs here and nothing upstream will overwrite it.
+
+Run `make validate`, `python3 code/openRepoKit verify`, and
+`python3 -m unittest discover -s code/tests -v` from this root.
+Contracts belong in `spec/contracts`; implementation and tests belong in code.
+Never edit component mounts: land component changes upstream and deliberately
+advance the code gitlink and spec contract. Preserve Tools' nested Shape pin.
+The integration gate must fail if recursive checkouts are unavailable.
+Use openRepoShape's `bump-leg.py` to advance leg pins, never hand-edit digests.
+Installation tests use temporary prefixes and isolated Claude configuration.

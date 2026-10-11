@@ -1,5 +1,71 @@
 # openRepoKit
 
+Tools for creating, structuring, and working across repositories.
+
+This is a Triad: openRepoKit-spec owns requirements and component contracts;
+openRepoKit-code owns installation and integration tests and mounts the three
+existing component repositories as submodules. The components retain their
+identities, histories and ownership. Tools' own nested Shape dependency can
+differ from Kit's selected runtime Shape version.
+
+```text
+openRepoKit/
+  spec/contracts/components.json       selected immutable revisions
+  code/openRepoKit                     installer and verifier
+  code/components/openRepoShape/       structure and validation
+  code/components/openRepoTools/       park/resume, lanes and workspace tools
+  code/components/openRepoProject/     project coordination and reporting
+```
+
+## Install the bundle
+
+Requires Python 3.10+, Git, Bash and PyYAML. From this assembly checkout:
+
+```sh
+make validate
+python3 code/openRepoKit verify
+python3 -m unittest discover -s code/tests -v
+python3 code/openRepoKit install --workbenches ../workBenches
+export PATH="$HOME/.local/openRepoKit/bin:$PATH"
+openRepoKit status
+project --help
+```
+
+Use `--prefix /absolute/path` for another destination. Commands live in its
+`bin/`; versioned source snapshots live in `releases/`. This separate prefix
+allows workBenches to continue managing its existing commands. Kit places its
+own release first on child processes' PATH. Project therefore uses bundled
+Shape; Shape uses its bundled setup script. Inherited source/ref variables
+cannot switch revisions. Upstream refusals and exit statuses are preserved.
+
+Tools' own installer prepares Claude skills and hooks inside the prefix by
+default. Add `--with-claude-integration` on a fresh-prefix installation to
+activate them in user configuration through upstream's merge logic. Those
+configuration writes are not transactional with command publication.
+Installation never installs prerequisites, authenticates, creates a project
+or initializes a workspace repository.
+
+Project's `--workbenches` and `WORKBENCHES_ROOT` override the optionally saved
+workBenches path. workBenches remains external; its generators are not pinned
+by Kit. Component self-installation refuses through Kit launchers. Install
+updates from the assembly checkout. Repeating an unchanged installation is
+a no-op; older releases remain available. Command links publish individually;
+do not run concurrent installations into the same prefix.
+
+Component gitlinks and `spec/contracts/components.json` must agree. Land both
+legs before advancing assembly pins with openRepoShape's `bump-leg.py`.
+See `spec/specs/001-kit-distribution/spec.md` for the acceptance contract.
+Kit's suite checks composition; it does not replace or claim execution of
+all upstream component suites.
+
+## Publication status
+
+This is a prepared local Triad with local bare remotes. GitHub authentication
+must be restored before publication, and the organization and visibility
+must be confirmed. Private visibility in the local manifest is provisional.
+The local clone command below requires `git -c protocol.file.allow=always`
+because the unpublished spec/code remotes are local file paths.
+
 The ASSEMBLY ROOT of the `openrepokit` project — the repository you clone.
 It holds no product code of its own: it holds the manifest that says what this
 project IS, the two legs as submodules, and the pins that say which commit of
