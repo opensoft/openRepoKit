@@ -58,13 +58,10 @@ See `spec/specs/001-kit-distribution/spec.md` for the acceptance contract.
 Kit's suite checks composition; it does not replace or claim execution of
 all upstream component suites.
 
-## Publication status
+## Public repositories and license
 
-This is a prepared local Triad with local bare remotes. GitHub API access
-must be available before publication, and the organization and visibility
-must be confirmed. Private visibility in the local manifest is provisional.
-The local clone command below requires `git -c protocol.file.allow=always`
-because the unpublished spec/code remotes are local file paths.
+The assembly and both legs are public repositories under `opensoft`.
+All three use Apache-2.0, matching the existing components. See [LICENSE](LICENSE).
 
 The ASSEMBLY ROOT of the `openrepokit` project — the repository you clone.
 It holds no product code of its own: it holds the manifest that says what this
@@ -78,7 +75,7 @@ at `54aa69a370f319b86e1b5f304b5bb373b8b53747`. Elected by Brett Heap on 2026-10-
 ## Get started
 
 ```sh
-git -c protocol.file.allow=always clone --branch kit/bootstrap --recurse-submodules /home/brett/Projects/.openRepoKit-remotes/openRepoKit.git
+git clone --recurse-submodules https://github.com/opensoft/openRepoKit.git
 cd openRepoKit
 make bootstrap
 ```
@@ -96,7 +93,7 @@ Unfinished work moves between machines as a RECORD, not as a folder:
 ```sh
 make park                  # before you leave this workstation
 # on the next one:
-git -c protocol.file.allow=always clone --branch kit/bootstrap --recurse-submodules /home/brett/Projects/.openRepoKit-remotes/openRepoKit.git
+git clone --recurse-submodules https://github.com/opensoft/openRepoKit.git
 cd openRepoKit && make bootstrap && make resume
 ```
 

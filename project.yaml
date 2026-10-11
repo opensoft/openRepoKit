@@ -59,7 +59,7 @@ topic: xf-project-openrepokit
 # in-place adoption it is the value the two NEW legs were created with — the
 # assembly root IS the adopted source and keeps whatever visibility it
 # already had on GitHub, unchanged by this tool.
-visibility: private
+visibility: public
 
 # The branch `scripts/bootstrap.py` places each leg on, AT its pinned commit.
 # The pin stays exact: `.gitmodules` carries no `branch=`, so there is exactly
