@@ -21,7 +21,7 @@ leg_role: code
 source_repository: opensoft/openRepoKit-code
 submodule_path: code
 
-commit: "c488922856b60212675da9921af8fcc4ed01567f"
+commit: "919d95f0eeb13e7a030b89f1416fd16e67f1f216"
 revision_kind: commit
 
 digest_algorithm: sha256
