@@ -1,6 +1,6 @@
 [submodule "spec"]
 	path = spec
-	url = /home/brett/Projects/.openRepoKit-remotes/openRepoKit-spec.git
+	url = https://github.com/opensoft/openRepoKit-spec.git
 [submodule "code"]
 	path = code
-	url = /home/brett/Projects/.openRepoKit-remotes/openRepoKit-code.git
+	url = https://github.com/opensoft/openRepoKit-code.git
