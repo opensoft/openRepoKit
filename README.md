@@ -60,8 +60,8 @@ all upstream component suites.
 
 ## Publication status
 
-This is a prepared local Triad with local bare remotes. GitHub authentication
-must be restored before publication, and the organization and visibility
+This is a prepared local Triad with local bare remotes. GitHub API access
+must be available before publication, and the organization and visibility
 must be confirmed. Private visibility in the local manifest is provisional.
 The local clone command below requires `git -c protocol.file.allow=always`
 because the unpublished spec/code remotes are local file paths.
