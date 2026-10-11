@@ -1,0 +1,6 @@
+[submodule "spec"]
+	path = spec
+	url = https://github.com/opensoft/openRepoKit-spec.git
+[submodule "code"]
+	path = code
+	url = https://github.com/opensoft/openRepoKit-code.git
