@@ -21,7 +21,7 @@ leg_role: spec
 source_repository: opensoft/openRepoKit-spec
 submodule_path: spec
 
-commit: "7aafc9cecd4a9a4d997eab71c305e7fd8f96f363"
+commit: "99c87ca19d87af1112b11515cb735b270ab3f2e4"
 revision_kind: commit
 
 digest_algorithm: sha256
