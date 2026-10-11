@@ -78,7 +78,7 @@ at `54aa69a370f319b86e1b5f304b5bb373b8b53747`. Elected by Brett Heap on 2026-10-
 ## Get started
 
 ```sh
-git clone --recurse-submodules /home/brett/Projects/.openRepoKit-remotes/openRepoKit.git
+git -c protocol.file.allow=always clone --branch kit/bootstrap --recurse-submodules /home/brett/Projects/.openRepoKit-remotes/openRepoKit.git
 cd openRepoKit
 make bootstrap
 ```
@@ -96,7 +96,7 @@ Unfinished work moves between machines as a RECORD, not as a folder:
 ```sh
 make park                  # before you leave this workstation
 # on the next one:
-git clone --recurse-submodules /home/brett/Projects/.openRepoKit-remotes/openRepoKit.git
+git -c protocol.file.allow=always clone --branch kit/bootstrap --recurse-submodules /home/brett/Projects/.openRepoKit-remotes/openRepoKit.git
 cd openRepoKit && make bootstrap && make resume
 ```
 
