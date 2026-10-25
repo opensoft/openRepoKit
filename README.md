@@ -46,11 +46,23 @@ Installation never installs prerequisites, authenticates, creates a project
 or initializes a workspace repository.
 
 Project's `--workbenches` and `WORKBENCHES_ROOT` override the optionally saved
-workBenches path. workBenches remains external; its generators are not pinned
-by Kit. Component self-installation refuses through Kit launchers. Install
-updates from the assembly checkout. Repeating an unchanged installation is
-a no-op; older releases remain available. Command links publish individually;
-do not run concurrent installations into the same prefix.
+checkout path. Both openBenches and workBenches remain external; their
+generators are not pinned by Kit. The saved release-manifest field, launcher
+export, `.workbenches-path` marker, and installed artifacts keep their existing
+`workbenches`/`WORKBENCHES_ROOT` names during the compatibility window.
+
+Without an explicit, saved, or marked selection, launchers validate
+`config/bench-config.json` and try `~/projects/openBenches`,
+`~/Projects/openBenches`, `~/projects/workBenches`, then
+`~/Projects/workBenches`. `PROJECTS_DIR` replaces the two home conventions and
+tries `openBenches` before `workBenches` there. Invalid automatic candidates
+are skipped; explicit and saved paths retain their existing validation and are
+not silently replaced. Existing checkouts are not moved or merged.
+
+Component self-installation refuses through Kit launchers. Install updates
+from the assembly checkout. Repeating an unchanged installation is a no-op;
+older releases remain available. Command links publish individually; do not
+run concurrent installations into the same prefix.
 
 Component gitlinks and `spec/contracts/components.json` must agree. Land both
 legs before advancing assembly pins with openRepoShape's `bump-leg.py`.
